@@ -19,4 +19,10 @@ public class LedgerEntry
         Amount = amount;
         CreatedAt = DateTimeOffset.UtcNow;
     }
+
+    // Required by EF Core: owned-type navigations (Amount) cannot be bound via constructor parameters.
+    private LedgerEntry()
+    {
+        Amount = null!;
+    }
 }
